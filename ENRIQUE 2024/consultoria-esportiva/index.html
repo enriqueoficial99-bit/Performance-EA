@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria de Alta Performance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1>ENRIQUE ARAÚJO</h1>
+                <span>CONSULTORIA ESPORTIVA</span>
+            </div>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#apresentacao">Sobre</a></li>
+                    <li><a href="#metodologia">Metodologia</a></li>
+                    <li><a href="#modalidades">Modalidades</a></li>
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="https://wa.me/5575981005700?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria!" target="_blank" class="btn-nav"><i class="fab fa-whatsapp"></i> Começar Agora</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#apresentacao" onclick="toggleMenu()">Sobre</a></li>
+                <li><a href="#metodologia" onclick="toggleMenu()">Metodologia</a></li>
+                <li><a href="#modalidades" onclick="toggleMenu()">Modalidades</a></li>
+                <li><a href="#planos" onclick="toggleMenu()">Planos</a></li>
+                <li><a href="https://wa.me/5575981005700?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria!" target="_blank" onclick="toggleMenu()">Começar Agora</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h2>CONSULTORIA DE ALTA PERFORMANCE</h2>
+            <div class="divider"></div>
+            <p class="hero-sub">Por Enrique Araújo</p>
+            <p class="hero-text">Futebol • Futvôlei • Corrida<br><br>Estrutura profissional de desenvolvimento esportivo baseada em ciência, dados e aplicação prática.</p>
+            <a href="#planos" class="btn-hero">EVOLUA SEU JOGO</a>
+        </div>
+    </section>
+
+    <section id="apresentacao" class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Quem Sou Eu</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="perfil-enrique.jpg" alt="Enrique Araújo">
+                </div>
+                <div class="about-text">
+                    <h3>Enrique Cerqueria Araújo</h3>
+                    <p class="highlight-text">Especialista em Potência e Pliometria</p>
+                    <p>Olá! Tenho 26 anos e sou formado em <strong>Educação Física (Bacharelado)</strong>. Minha missão é elevar o nível de atletas amadores e profissionais.</p>
+                    <p>Trabalho especificamente com atletas de <strong>Futebol, Futevôlei e Corrida</strong>, com foco total na <strong>Alta Performance</strong>. Utilizo métodos validados cientificamente para desenvolver força explosiva, velocidade e resistência, garantindo que você atinja seu máximo potencial.</p>
+                    
+                    <div class="about-badges">
+                        <span><i class="fas fa-certificate"></i> Bacharel em Ed. Física</span>
+                        <span><i class="fas fa-bolt"></i> Especialista em Potência</span>
+                        <span><i class="fas fa-chart-line"></i> Foco em Alta Performance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="objetivos" class="section-light">
+        <div class="container">
+            <h2 class="section-title">Objetivos</h2>
+            <div class="grid-features">
+                <div class="feature-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Desempenho</h3>
+                    <p>Aumentar o desempenho físico específico de cada modalidade.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Eficiência</h3>
+                    <p>Melhorar a eficiência técnica e a tomada de decisão sob fadiga e pressão.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Prevenção</h3>
+                    <p>Reduzir o risco de lesões por meio de prevenção e gestão inteligente de carga.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Consistência</h3>
+                    <p>Aumentar a consistência competitiva ao longo da temporada.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Longevidade</h3>
+                    <p>Prolongar a carreira esportiva com saúde e alta performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metodologia" class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Metodologia</h2>
+            <div class="methodology-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Avaliação Diagnóstica</h3>
+                    <p>Análise detalhada do perfil físico, funcional e técnico. Identificação de pontos fortes e riscos.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Planejamento Estratégico</h3>
+                    <p>Plano 100% individualizado, baseado em metas e alinhado ao calendário competitivo.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Execução e Monitoramento</h3>
+                    <p>Controle de carga, intensidade e resposta fisiológica para garantir eficiência.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h3>Otimização Contínua</h3>
+                    <p>Ajustes constantes baseados em dados, feedback e evolução real de performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pilares" class="section-image-bg">
+        <div class="overlay-dark"></div>
+        <div class="container relative">
+            <h2 class="section-title">Pilares da Performance</h2>
+            <div class="grid-pilares">
+                <div class="pilar">
+                    <i class="fas fa-dumbbell"></i>
+                    <h4>Físico</h4>
+                    <p>Força, potência, velocidade, resistência e mobilidade.</p>
+                </div>
+                <div class="pilar">
+                    <i class="fas fa-running"></i>
+                    <h4>Técnico</h4>
+                    <p>Eficiência de movimento e economia de esforço.</p>
+                </div>
+                <div class="pilar">
+                    <i class="fas fa-head-side-virus"></i>
+                    <h4>Mental</h4>
+                    <p>Foco, disciplina e tomada de decisão sob pressão.</p>
+                </div>
+                <div class="pilar">
+                    <i class="fas fa-bed"></i>
+                    <h4>Recuperação</h4>
+                    <p>Gestão de sono, carga, regeneração e nutrição.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modalidades" class="section-light">
+        <div class="container">
+            <h2 class="section-title">Modalidades</h2>
+            <div class="modalities-container">
+                <div class="modality-card">
+                    <div class="modality-icon"><i class="fas fa-futbol"></i></div>
+                    <h3>Futebol</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Velocidade e aceleração</li>
+                        <li><i class="fas fa-check"></i> Resistência de alta intensidade</li>
+                        <li><i class="fas fa-check"></i> Prevenção de lesões</li>
+                        <li><i class="fas fa-check"></i> Performance no 2º tempo</li>
+                    </ul>
+                </div>
+                <div class="modality-card">
+                    <div class="modality-icon"><i class="fas fa-volleyball-ball"></i></div>
+                    <h3>Futvôlei</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Potência de salto na areia</li>
+                        <li><i class="fas fa-check"></i> Estabilidade de core</li>
+                        <li><i class="fas fa-check"></i> Resistência para jogos longos</li>
+                        <li><i class="fas fa-check"></i> Prevenção de sobrecargas</li>
+                    </ul>
+                </div>
+                <div class="modality-card">
+                    <div class="modality-icon"><i class="fas fa-running"></i></div>
+                    <h3>Corrida</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Melhora de pace e economia</li>
+                        <li><i class="fas fa-check"></i> Desenvolvimento aeróbio</li>
+                        <li><i class="fas fa-check"></i> Estratégia de prova</li>
+                        <li><i class="fas fa-check"></i> Redução de impacto</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="planos" class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Planos de Consultoria</h2>
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Plano Básico</h3>
+                        <span class="subtitle">Performance Essencial</span>
+                        <div class="price">R$ 59,99<small>/mês</small></div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Avaliação diagnóstica online</li>
+                            <li><i class="fas fa-check"></i> Planejamento base (4 semanas)</li>
+                            <li><i class="fas fa-check"></i> Protocolos de prevenção</li>
+                            <li><i class="fas fa-check"></i> Relatório individual</li>
+                        </ul>
+                        <a href="https://wa.me/5575981005700?text=Ol%C3%A1%2C%20quero%20o%20Plano%20B%C3%A1sico!" target="_blank" class="btn-price">Escolher Básico</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-tag">Mais Popular</div>
+                    <div class="pricing-header">
+                        <h3>Plano PRO</h3>
+                        <span class="subtitle">Performance Competitiva</span>
+                        <div class="price">R$ 149,99<small>/mês</small></div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Planejamento 8 a 12 semanas</li>
+                            <li><i class="fas fa-check"></i> Ajustes semanais</li>
+                            <li><i class="fas fa-check"></i> Monitoramento de carga</li>
+                            <li><i class="fas fa-check"></i> Análise técnica (se aplicável)</li>
+                            <li><i class="fas fa-check"></i> Suporte via WhatsApp</li>
+                        </ul>
+                        <a href="https://wa.me/5575981005700?text=Ol%C3%A1%2C%20quero%20o%20Plano%20PRO!" target="_blank" class="btn-price btn-featured">Escolher PRO</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Plano Premium</h3>
+                        <span class="subtitle">Alta Performance Elite</span>
+                        <div class="price">R$ 249,99<small>/mês</small></div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Consultoria Totalmente Personalizada</li>
+                            <li><i class="fas fa-check"></i> Planejamento por ciclo</li>
+                            <li><i class="fas fa-check"></i> Estratégia integrada</li>
+                            <li><i class="fas fa-check"></i> Protocolos avançados</li>
+                            <li><i class="fas fa-check"></i> Suporte Direto VIP</li>
+                        </ul>
+                        <a href="https://wa.me/5575981005700?text=Ol%C3%A1%2C%20quero%20o%20Plano%20Premium!" target="_blank" class="btn-price">Escolher Premium</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resultados" class="section-light">
+        <div class="container">
+            <h2 class="section-title">Resultados Esperados</h2>
+            <div class="results-list">
+                <div class="result-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>Atletas mais fortes, rápidos e resistentes</span>
+                </div>
+                <div class="result-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Melhora clara e mensurável da performance</span>
+                </div>
+                <div class="result-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Redução significativa de lesões</span>
+                </div>
+                <div class="result-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Maior regularidade competitiva</span>
+                </div>
+            </div>
+            
+            <div class="diferencial-box">
+                <h3>Diferencial Profissional</h3>
+                <p>Esta consultoria não se baseia em motivação momentânea ou treinos genéricos. Ela é construída sobre método, ciência, dados e estratégia aplicada à realidade do atleta.</p>
+                <div class="quote">
+                    "Talento sem método é instável. Alta performance é construída."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>ENRIQUE ARAÚJO</h3>
+                <p>Evolua seu jogo com ciência e estratégia.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Contato</h3>
+                <p><a href="https://wa.me/5575981005700" target="_blank"><i class="fab fa-whatsapp"></i> (75) 98100-5700</a></p>
+                <p><i class="far fa-envelope"></i> Enriqueoficial99@gmail.com</p>
+                <p><a href="https://instagram.com/Enriquearj7" target="_blank"><i class="fab fa-instagram"></i> @Enriquearj7</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Enrique Araújo Alta Performance. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
