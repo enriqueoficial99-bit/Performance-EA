@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrique Araújo | App do Aluno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="toast-container"></div>
+
+    <!-- LOGIN SCREEN -->
+    <section id="login-screen" class="active-screen">
+        <div class="login-bg-overlay"></div>
+        <div class="login-box">
+            <div class="logo-area">
+                <i class="fas fa-bolt"></i>
+                <h2>ENRIQUE ARAÚJO</h2>
+                <span>PERFORMANCE COACH</span>
+            </div>
+            <form id="login-form">
+                <div class="input-floating">
+                    <input type="text" id="login-user" placeholder=" " required>
+                    <label>Usuário</label>
+                </div>
+                <div class="input-floating">
+                    <input type="password" id="login-pass" placeholder=" " required>
+                    <label>Senha</label>
+                </div>
+                <button type="submit" class="btn-primary">ACESSAR PLATAFORMA</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ADMIN DASHBOARD -->
+    <section id="admin-dashboard" class="hidden-screen">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-bolt"></i>
+                <span>ADMIN</span>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" onclick="showAdminView('list-students')"><i class="fas fa-users"></i> Alunos</button>
+                <button class="nav-btn" onclick="showAdminView('add-student')"><i class="fas fa-user-plus"></i> Novo Cadastro</button>
+            </nav>
+            <button class="btn-logout-side" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</button>
+        </aside>
+
+        <main class="main-content">
+            <!-- VIEW: LISTA ALUNOS -->
+            <div id="view-list-students" class="view active-view">
+                <header class="view-header">
+                    <h2>Meus Alunos</h2>
+                </header>
+                <div class="student-grid" id="admin-student-list"></div>
+            </div>
+
+            <!-- VIEW: NOVO ALUNO -->
+            <div id="view-add-student" class="view hidden-view">
+                <header class="view-header">
+                    <h2>Cadastrar Aluno</h2>
+                </header>
+                <div class="form-container">
+                    <form id="create-student-form">
+                        <div class="form-group">
+                            <label>Nome Completo</label>
+                            <input type="text" id="new-student-name" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Usuário</label>
+                                <input type="text" id="new-student-user" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Senha Inicial</label>
+                                <input type="text" id="new-student-pass" value="treino2026" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Salvar Cadastro</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- VIEW: EDITOR DE ALUNO -->
+            <div id="view-student-editor" class="view hidden-view">
+                <header class="view-header with-back">
+                    <button onclick="showAdminView('list-students')" class="btn-icon-back"><i class="fas fa-arrow-left"></i></button>
+                    <div style="flex:1">
+                        <h2 id="editor-student-name">Nome do Aluno</h2>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <span id="student-status-badge" class="status-badge">Ativo</span>
+                            <button id="btn-toggle-status" class="btn-small-danger" onclick="toggleStudentStatus()">Bloquear Aluno</button>
+                            <button class="btn-delete-student" onclick="deleteCurrentStudent()" title="Excluir Aluno permanentemente">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="editor-tabs">
+                    <button class="tab-link active" onclick="openEditorTab('treinos')">Planejamento Semanal</button>
+                    <button class="tab-link" onclick="openEditorTab('feedbacks')">Feedbacks & Avaliações</button>
+                </div>
+
+                <!-- TAB TREINOS -->
+                <div id="tab-treinos" class="editor-tab-content active">
+                    <div class="week-selector">
+                        <button class="day-btn active" onclick="selectAdminDay('segunda')">SEG</button>
+                        <button class="day-btn" onclick="selectAdminDay('terca')">TER</button>
+                        <button class="day-btn" onclick="selectAdminDay('quarta')">QUA</button>
+                        <button class="day-btn" onclick="selectAdminDay('quinta')">QUI</button>
+                        <button class="day-btn" onclick="selectAdminDay('sexta')">SEX</button>
+                        <button class="day-btn" onclick="selectAdminDay('sabado')">SÁB</button>
+                        <button class="day-btn" onclick="selectAdminDay('domingo')">DOM</button>
+                    </div>
+
+                    <div class="workout-builder">
+                        <div class="builder-header">
+                            <h3 id="current-day-label">Segunda-Feira</h3>
+                            <button class="btn-small-primary" onclick="openExerciseModal()">+ Adicionar Exercício</button>
+                        </div>
+                        
+                        <div id="admin-day-exercises" class="exercise-list-admin">
+                            <!-- Lista de exercícios do dia -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB FEEDBACKS -->
+                <div id="tab-feedbacks" class="editor-tab-content hidden">
+                    <div class="feedback-layout">
+                        <div class="feedback-input">
+                            <h3>Novo Feedback</h3>
+                            <form id="form-feedback">
+                                <textarea id="feedback-msg" placeholder="Escreva a avaliação ou feedback..." rows="4" required></textarea>
+                                
+                                <div class="upload-area" onclick="document.getElementById('feedback-file').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Anexar Foto/PDF (Opcional)</span>
+                                    <input type="file" id="feedback-file" accept="image/*,.pdf" hidden onchange="handleFileSelect(this)">
+                                </div>
+                                <div id="file-preview-name"></div>
+
+                                <button type="submit" class="btn-primary">Enviar Feedback</button>
+                            </form>
+                        </div>
+                        <div class="feedback-history">
+                            <h3>Histórico</h3>
+                            <div id="feedback-list-admin"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <!-- CLIENT APP -->
+    <section id="client-app" class="hidden-screen">
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="showClientTab('treinos')">
+                <i class="fas fa-dumbbell"></i>
+                <span>Treinos</span>
+            </button>
+            <button class="nav-item" onclick="showClientTab('feedbacks')">
+                <i class="fas fa-comments"></i>
+                <span>Feedbacks</span>
+            </button>
+            <button class="nav-item" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </button>
+        </nav>
+
+        <header class="mobile-header">
+            <div class="user-welcome">
+                <small>Bem-vindo,</small>
+                <h3 id="client-name-display">Aluno</h3>
+            </div>
+            <div class="brand-small">EA</div>
+        </header>
+
+        <main class="client-content">
+            <!-- CLIENT TAB: TREINOS -->
+            <div id="client-view-treinos" class="client-view active">
+                <div class="horizontal-calendar">
+                    <!-- Preenchido via JS -->
+                </div>
+                
+                <div class="daily-workout-container">
+                    <h3 id="client-day-title">Treino de Hoje</h3>
+                    <div id="client-workout-list" class="workout-cards-list">
+                        <!-- Cards de exercícios -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLIENT TAB: FEEDBACKS -->
+            <div id="client-view-feedbacks" class="client-view hidden">
+                <h3>Meus Feedbacks</h3>
+                
+                <div class="feedback-input-client">
+                    <form id="form-client-feedback">
+                        <textarea id="client-feedback-msg" placeholder="Envie seu feedback sobre o treino..." rows="3" required></textarea>
+                        <button type="submit" class="btn-primary" style="margin-top:10px;">Enviar para o Treinador</button>
+                    </form>
+                </div>
+
+                <div id="client-feedback-list" class="feedback-feed"></div>
+            </div>
+        </main>
+    </section>
+
+    <!-- MODAL ADD EXERCISE -->
+    <div id="exercise-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <h3>Novo Exercício</h3>
+            <form id="form-add-exercise">
+                <div class="form-group">
+                    <label>Nome do Exercício</label>
+                    <input type="text" id="ex-name" placeholder="Ex: Agachamento Livre" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Séries</label>
+                        <input type="text" id="ex-sets" placeholder="3">
+                    </div>
+                    <div class="form-group">
+                        <label>Reps/Tempo</label>
+                        <input type="text" id="ex-reps" placeholder="12 ou 30s">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Link do Vídeo (YouTube/Instagram)</label>
+                    <input type="url" id="ex-video" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label>Observação (Opcional)</label>
+                    <input type="text" id="ex-obs" placeholder="Ex: Cadência 2020">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-text" onclick="closeExerciseModal()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
